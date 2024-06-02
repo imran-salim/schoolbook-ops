@@ -40,12 +40,16 @@ const operandA = operands[0];
 const operandB = operands[1];
 
 const add = (a, b) => {
-    let reversedA = reverseOperand(a);
-    let operandB = b;
-
-    console.log(reversedA);
-    console.log(operandB);
+    return [reverseOperand(a), b];
 }
 
-add(operandA, operandB);
-
+console.log(`\nFirst program argument: "${process.argv[2]}"`);
+console.log(`Second program argument: "${process.argv[3]}"`);
+console.log("\nParsing program arguments...");
+console.log(`\nFirst operand: [${operandA}]`);
+console.log(`Second operand: [${operandB}]`);
+console.log("\nReversing the first operand...");
+console.log(`\nReversed first operand: [${add(operandA, operandB)[0]}]`);
+console.log(`Second operand: [${add(operandA, operandB)[1]}]`);
+console.log("\nAdding operands...");
+console.log();
