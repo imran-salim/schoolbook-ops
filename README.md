@@ -1,3 +1,3 @@
-# Schoolbook Arithmetic Operations
+# Schoolbook Operations
 
-Implementations in JavaScript of the algorithms for arithmetic operations I learnt at Kumon.
+Implementations in JavaScript of the algorithms for mathematical operations I learnt at Kumon.
