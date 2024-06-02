@@ -39,7 +39,7 @@ const operands = parseOperands();
 const operandA = operands[0];
 const operandB = operands[1];
 
-const additionWithCarry = (a, b) => {
+const add = (a, b) => {
     let reversedA = reverseOperand(a);
     let operandB = b;
 
@@ -47,4 +47,5 @@ const additionWithCarry = (a, b) => {
     console.log(operandB);
 }
 
-additionWithCarry(operandA, operandB);
+add(operandA, operandB);
+
