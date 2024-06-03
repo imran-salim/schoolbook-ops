@@ -20,7 +20,7 @@ const parseOperands = () => {
     return [operandA, operandB];
 }
 
-const swapIndices = (operand, i, j) => {
+const swapElements = (operand, i, j) => {
     let temp = operand[j];
     operand[j] = operand[i];
     operand[i] = temp;
@@ -36,11 +36,11 @@ const reverseOperand = (operand) => {
     if (operand.length < 2) {
         return operand;
     } else if (operand.length < 3) {
-        return swapIndices(operand, 0, 1);
+        return swapElements(operand, 0, 1);
     }
 
     for (let i = 0, j = operand.length-1; i < j; i++, j--) {
-        operand = swapIndices(operand, i, j);
+        operand = swapElements(operand, i, j);
     }
     return operand;
 }
