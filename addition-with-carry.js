@@ -1,19 +1,30 @@
+const swap = (a, b) => {
+    let temp = a;
+    a = b;
+    b = temp;
+    return [a, b];
+}
+
 const parseOperands = () => {
-    let args = process.argv;
-    if (args.length != 4) {
+    if (process.argv.length != 4) {
         console.trace("there must be exactly two operands");
         process.exit(1);
     }
 
     let operandA = process.argv[2].split('');
     let operandB = process.argv[3].split('');
+
     if (operandA.length < operandB.length) {
-        let temp = operandA;
-        operandA = operandB;
-        operandB = temp;
+        return swap(operandA, operandB);
     }
-    
     return [operandA, operandB];
+}
+
+const swapIndices = (operand, i, j) => {
+    let temp = operand[j];
+    operand[j] = operand[i];
+    operand[i] = temp;
+    return operand;
 }
 
 const reverseOperand = (operand) => {
@@ -21,17 +32,16 @@ const reverseOperand = (operand) => {
         console.trace("reversing an integer operand represented as an empty array is intractable");
         process.exit(1);
     }
+    
     if (operand.length < 2) {
         return operand;
+    } else if (operand.length < 3) {
+        return swapIndices(operand, 0, 1);
     }
 
-    let temp;
     for (let i = 0, j = operand.length-1; i < j; i++, j--) {
-        temp = operand[j];
-        operand[j] = operand[i];
-        operand[i] = temp;
+        operand = swapIndices(operand, i, j);
     }
-
     return operand;
 }
 
